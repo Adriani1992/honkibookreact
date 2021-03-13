@@ -1,0 +1,1040 @@
+// .wei-main-content-body {
+//   padding-top: 0;
+// }
+.wei-bg-black {
+  background: url('http://localhost:3000/images/bg_noise.png')
+    var(--honki-black);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: -80px;
+}
+
+.wei-bg-black::before {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 45px;
+  background-image: url('http://localhost:3000/images/wei/cricket.svg');
+  background-repeat: no-repeat;
+  position: absolute;
+  transform: scaleX(-1);
+  top: calc(50vh - 76px);
+  left: calc(50% - 180px);
+}
+.wei-bg-black:hover.wei-bg-black::before {
+  animation: jumping 2s infinite;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+@keyframes jumping {
+  0% {
+    transform: scale(-1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(-1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(-0.9, 1.1) translateY(-100px);
+  }
+  50% {
+    transform: scale(-1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(-1, 1) translateY(-5px);
+  }
+  64% {
+    transform: scale(-1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(-1, 1) translateY(0);
+  }
+}
+.wei-searcharea {
+  height: 50%;
+}
+.wei-search-box {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 40px;
+  .btn-primary.dropdown-toggle,
+  .btn-primary.dropdown-toggle:active {
+    border: 1px solid white;
+    border-radius: 20px 0 0 20px;
+    background-color: var(--honki-black);
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 14px;
+    height: 100%;
+    min-width: 100px;
+  }
+
+  .dropdown-item:hover {
+    color: white;
+    background-color: rgb(114, 108, 106);
+  }
+  .dropdown-item:active {
+    background-color: var(--honki-black);
+  }
+  .dropdown-menu {
+    min-width: 0;
+  }
+  .btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+  .btn-primary.dropdown-toggle:hover {
+    background-color: rgb(114, 108, 106);
+  }
+  input {
+    border: 1px solid white;
+    outline: none;
+    height: 100%;
+    width: 100%;
+  }
+  .wei-suggestions {
+    background: white;
+    list-style: none;
+    padding: 4px;
+    text-align: center;
+  }
+  .wei-search-btn.btn.btn-primary,
+  .wei-search-btn.btn.btn-primary:active,
+  .wei-search-btn.btn.btn-primary:focus {
+    border-radius: 0 20px 20px 0;
+    background-color: var(--honki-black);
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+    border: 1px solid white;
+    font-size: 14px;
+    height: 100%;
+    outline: none;
+    box-shadow: none;
+  }
+  .wei-search-btn.btn.btn-primary:hover {
+    background-color: rgb(114, 108, 106);
+  }
+}
+.wei-bookarea {
+  width: 100%;
+  margin-top: auto;
+  padding: 0;
+}
+.wei-books {
+  position: relative;
+  height: 100%;
+}
+.wei-book {
+  width: 7%;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+.wei-book:hover img {
+  transform: translateY(-80px) rotate(-20deg);
+  z-index: 1;
+}
+.wei-book:hover {
+  z-index: 1;
+}
+
+.wei-book:last-child:hover img {
+  transform: translate(-80px, -80px) rotate(10deg);
+  z-index: 1;
+}
+@media (max-width: 992px) {
+  .wei-book {
+    width: 100px;
+    /* position: relative; */
+  }
+}
+
+.wei-book img {
+  transition: 0.5s cubic-bezier(0.82, 0.25, 0.83, 0.67);
+}
+$bookNum: 16;
+@for $i from 2 through $bookNum {
+  .wei-book:nth-child(#{$i}) {
+    left: (($i - 1) * (100 / $bookNum) * 1%);
+  }
+}
+
+.wei-bookshelf {
+  z-index: 2;
+  width: 100%;
+  height: 25px;
+  position: absolute;
+  bottom: 0;
+  background: url('http://localhost:3000/images/bg_noise.png') #564030;
+}
+
+/* breadcrumb */
+.wei-breadcrumb-section {
+  margin-left: 57px;
+  margin-right: 57px;
+}
+@media (max-width: 790px) {
+  .wei-breadcrumb-section {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+ol.wei-breadcrumb {
+  margin-bottom: 0;
+}
+.wei-button-group {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.wei-sort-button {
+  padding: 0 16px 0 32px;
+}
+.wei-sort-arrow {
+  opacity: 0;
+}
+.wei-button-group .btn-rounded-dark {
+  margin-top: 0.5rem;
+  margin-right: 8px;
+}
+@media (max-width: 996px) {
+  .wei-button-group {
+    // justify-content: center;
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+@media (max-width: 430px) {
+  .wei-button-group .btn-rounded-dark {
+    height: 30px;
+    font-size: 12px;
+    padding: 0 20px;
+    line-height: 12px;
+  }
+}
+
+/* card */
+.wei-card {
+  margin-top: 5rem;
+  cursor: pointer;
+}
+@media (min-width: 1200px) {
+  .wei-card {
+    padding: 0 40px;
+  }
+}
+
+.wei-card-pic {
+  /* text-align: center; */
+  background: url('http://localhost:3000/images/bg_noise.png') white;
+  border-radius: 15px;
+  padding: 40px 20px;
+  /* height: 240px; */
+  width: 100%;
+  transition: all 0.5s;
+}
+.wei-card:hover .wei-card-icon {
+  transform: translateX(-2rem);
+  opacity: 0;
+}
+.wei-card:hover .wei-card-pic {
+  background: transparent;
+}
+.wei-card:hover .wei-card-pic img {
+  transform: scale(1.2);
+}
+.wei-card:hover .wei-heart-bg {
+  right: 3%;
+  opacity: 1;
+}
+.wei-heart.wei-coral {
+  color: coral;
+}
+.wei-book-pic img {
+  height: 168px;
+  object-fit: contain;
+  -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
+  transition: all 0.5s;
+}
+.wei-card-icon {
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: -24px;
+  left: 24px;
+  border-radius: 50%;
+  background-color: var(--honki-red);
+  color: white;
+  line-height: 48px;
+  text-align: center;
+  font-family: abel, sans-serif;
+  font-size: 13px;
+  transition: all 0.5s;
+}
+.wei-card-icon.theme-color {
+  background-color: var(--honki-theme);
+}
+@media (min-width: 1200px) {
+  .wei-card-icon {
+    left: 56px;
+  }
+}
+.wei-heart-bg {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -3%;
+  width: 12%;
+  height: 40%;
+  border-radius: 1rem 0 0 1rem;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.wei-heart {
+  font-size: 1rem;
+  color: grey;
+  cursor: pointer;
+}
+.wei-book-text {
+  margin-top: 20px;
+}
+.wei-book-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+.wei-book-author {
+  font-size: 14px;
+  color: #afafaf;
+  margin-bottom: 6px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.wei-book-price {
+  font-size: 18px;
+  text-align: right;
+  font-weight: bold;
+}
+.wei-product-stars .wei-star {
+  font-size: 12px;
+}
+.wei-categories {
+  margin-top: 5rem;
+}
+.wei-categories-title {
+  margin-bottom: 3rem;
+}
+
+.wei-category {
+  font-size: 1rem;
+  color: var(--honki-black);
+  transition: all 0.5s;
+  &:hover {
+    color: rgb(158, 158, 158);
+    text-decoration: none;
+  }
+  p {
+    margin-bottom: 0;
+    margin-top: 2rem;
+  }
+}
+.wei-category.active {
+  color: var(--honki-red);
+  font-weight: bold;
+}
+.wei-category.active p::before {
+  color: var(--honki-red);
+  content: '•';
+  position: absolute;
+  left: 24px;
+}
+/* wei-list-card */
+.wei-card-list {
+  color: var(--honki-black);
+  display: flex;
+  padding: 0;
+  margin-top: 4rem;
+  .wei-book-text-left {
+    width: 40%;
+    // width: 30%;
+    margin-right: 2rem;
+  }
+  @media (max-width: 1200px) {
+    .wei-book-text-left {
+      width: 80%;
+      margin-bottom: 8px;
+    }
+  }
+  .wei-book-text-right {
+    width: 60%;
+  }
+  .wei-book-overview {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    font-size: 14px;
+    white-space: pre-line;
+  }
+  .wei-book-title {
+    font-size: 16px;
+  }
+  .wei-book-pub {
+    font-size: 14px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+}
+.wei-card-list-text {
+  width: 80%;
+  margin-top: 20px;
+}
+.wei-card-list-pic {
+  background: url('http://localhost:3000/images/bg_noise.png') white;
+  border-radius: 15px;
+  transition: all 0.5s;
+  width: 20%;
+  padding: 20px 10px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 5rem;
+  height: 100%;
+}
+
+.wei-list-book-pic img {
+  height: 150px;
+  object-fit: contain;
+  -webkit-filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.2));
+  transition: all 0.5s;
+}
+@media (max-width: 996px) {
+  .wei-card-list-pic {
+    width: 40%;
+    margin-right: 2rem;
+    height: 80%;
+  }
+  .wei-list-book-pic img {
+    height: 130px;
+  }
+}
+@media (min-width: 1200px) {
+  .wei-text-wrapper {
+    display: flex;
+  }
+}
+
+.wei-list-icon {
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--honki-red);
+  color: white;
+  line-height: 48px;
+  text-align: center;
+  font-size: 13px;
+  transition: all 0.5s;
+  top: 0;
+  left: 24px;
+  transform: translate(-50%, -50%);
+}
+.wei-list-icon.theme-color {
+  background-color: var(--honki-theme);
+}
+@media (max-width: 996px) {
+  .wei-list-icon {
+    top: 24px;
+  }
+}
+.wei-book-list-price {
+  text-align: left;
+  .wei-del-price {
+    font-size: 14px;
+    color: #afafaf;
+    margin-left: 0.5rem;
+    vertical-align: text-bottom;
+  }
+  .wei-detail-badge {
+    font-size: 12px;
+  }
+}
+.wei-list-heart-bg {
+  background-color: white;
+  position: absolute;
+  bottom: -10%;
+  width: 100%;
+  height: 12%;
+  border-radius: 1rem 1rem 0 0;
+  transition: all 0.5s;
+  text-align: center;
+  margin: 0 -10px;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wei-card-list:hover .wei-list-heart-bg {
+  bottom: 0;
+  opacity: 1;
+}
+.wei-card-list:hover .wei-list-icon {
+  transform: translate(-2.5rem, -24px);
+  opacity: 0;
+}
+.wei-card-list .wei-card-list-pic:hover {
+  background: transparent;
+}
+.wei-card-list:hover .wei-card-list-pic img {
+  transform: scale(1.2);
+}
+.wei-list-heart {
+  font-size: 14px;
+  color: grey;
+  cursor: pointer;
+}
+.wei-list-heart.wei-coral {
+  color: coral;
+}
+/* skeleton */
+.wei-skeleton {
+  margin-top: 5rem;
+}
+@media (min-width: 1200px) {
+  .wei-skeleton {
+    padding: 0 40px;
+  }
+}
+.wei-skeleton-pic {
+  background: url('http://localhost:3000/images/bg_noise.png') white;
+  border-radius: 15px;
+  padding: 40px 20px;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.wei-skeleton-text {
+  margin-top: 20px;
+}
+.wei-skeleton-title {
+  margin-bottom: 8px;
+}
+.wei-skeleton-author {
+  margin-bottom: 1rem;
+  width: 40%;
+}
+.wei-skeleton-price {
+  margin-left: auto;
+  width: 30%;
+}
+.wei-skeleton-price,
+.wei-skeleton-author,
+.wei-skeleton-title,
+.wei-skeleton-inside-pic {
+  background: #ccc;
+  overflow: hidden;
+  content: '';
+  height: 14px;
+  z-index: 1;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-position: -100px 0;
+  background-repeat: no-repeat;
+  animation: loading-wei 1.5s infinite;
+}
+.wei-skeleton-inside-pic {
+  height: 168px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1200px) {
+  .wei-skeleton-inside-pic {
+    width: 55%;
+  }
+}
+@keyframes loading-wei {
+  to {
+    background-position: 300px 0;
+  }
+}
+/* wei-list-skeleton */
+.wei-skeleton-list {
+  color: var(--honki-black);
+  display: flex;
+  padding: 0;
+  margin-top: 4rem;
+  .wei-skeleton-item {
+    background: #ccc;
+    overflow: hidden;
+    content: '';
+    height: 14px;
+    z-index: 1;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    animation: loading-wei 1.5s infinite;
+  }
+  .wei-book-text-left {
+    width: 30%;
+    margin-right: 2rem;
+    .wei-skeleton-item {
+      width: 80%;
+    }
+    .wei-skeleton-item:last-child {
+      width: 50%;
+    }
+  }
+  .wei-book-text-right {
+    width: 60%;
+    .wei-skeleton-item {
+      width: 60%;
+    }
+  }
+  .wei-book-title {
+    height: 16px;
+    width: 40%;
+  }
+  .wei-card-list-text {
+    width: 80%;
+    margin-top: 20px;
+  }
+  .wei-skeleton-list-pic {
+    background: url('http://localhost:3000/images/bg_noise.png') white;
+    border-radius: 15px;
+    transition: all 0.5s;
+    width: 20%;
+    padding: 20px 10px;
+    position: relative;
+    height: 100%;
+  }
+  .wei-skeleton-inside-pic {
+    height: 150px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 996px) {
+    .wei-skeleton-list-pic {
+      width: 40%;
+      margin-right: 2rem;
+    }
+    .wei-skeleton-inside-pic {
+      height: 120px;
+      width: 65%;
+    }
+  }
+}
+.wei-detail-spinner {
+  .wei-detail-pic,
+  .wei-detail-title,
+  .wei-detail-subtitle,
+  .wei-reviews,
+  .wei-detail-text,
+  .wei-detail-final-price,
+  .wei-detail-badge {
+    background: #ccc;
+    overflow: hidden;
+    content: '';
+    height: 19px;
+    z-index: 1;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-position: -100px 0;
+    background-repeat: no-repeat;
+    animation: loading-wei 1.5s infinite;
+  }
+  .wei-detail-title {
+    height: 33px;
+    width: 70%;
+    margin-bottom: 8px;
+  }
+  .wei-detail-pic {
+    height: 307px;
+  }
+  .wei-detail-subtitle {
+    width: 20%;
+    height: 24px;
+    margin-bottom: 8px;
+  }
+  .wei-reviews {
+    height: 16px;
+    width: 18%;
+  }
+  .wei-detail-text {
+    width: 30%;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 768px) {
+    .wei-detail-text {
+      width: 50%;
+      margin-bottom: 8px;
+    }
+  }
+  .wei-detail-text-author {
+    width: 20%;
+  }
+  .wei-detail-final-price {
+    height: 24px;
+    width: 15%;
+    margin-bottom: 8px;
+  }
+  .wei-detail-badge {
+    height: 24px;
+  }
+}
+/* pagination */
+.wei-pagination {
+  margin-bottom: 192px;
+  margin-top: 110px;
+}
+
+/* ------ product detail ------ */
+.wei-bg-white {
+  background: url('http://localhost:3000/images/bg_noise.png') white;
+  padding: 72px;
+  margin-top: -80px;
+}
+@media (min-width: 992px) {
+  .wei-bg-white {
+    margin-top: 0;
+  }
+}
+@media (max-width: 400px) {
+  .wei-bg-white {
+    padding: 24px;
+  }
+}
+.wei-detail-pic {
+  width: 240px;
+  -webkit-filter: drop-shadow(30px 10px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(30px 10px 10px rgba(0, 0, 0, 0.2));
+}
+.wei-read-trial:active,
+.wei-read-trial:focus {
+  border: none;
+  box-shadow: none;
+  background-color: var(--honki-black);
+}
+.wei-line {
+  background: var(--honki-yellow);
+  width: 70%;
+}
+.wei-star {
+  color: grey;
+}
+.wei-star.yellow {
+  color: #ffc107;
+}
+.wei-detail-title {
+  width: 70%;
+}
+@media (max-width: 992px) {
+  .wei-detail-title {
+    width: 100%;
+  }
+}
+.wei-detail-right h6 {
+  font-size: 19px;
+  font-weight: normal;
+}
+.wei-detail-final-price {
+  font-weight: bold;
+}
+.wei-detail-badge {
+  font-weight: 400;
+  text-align: center;
+  border-radius: 14px;
+  line-height: 28px;
+  width: 66px;
+  height: 28px;
+  font-size: 14px;
+  color: white;
+  vertical-align: top;
+  background-color: var(--honki-theme);
+}
+
+@media (max-width: 768px) and(min-width:576px) {
+  .wei-add-to-cart {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 576px) {
+  .wei-add-to-cart {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 3;
+    width: 100%;
+    transition: 0.5s;
+  }
+}
+
+.wei-detail-icon {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 1px solid var(--honki-black);
+  transition: 0.5s;
+}
+.wei-detail-heart-icon,
+.wei-detail-share-icon {
+  line-height: 60px;
+}
+.wei-detail-icon:hover {
+  background-color: white;
+}
+.wei-detail-icons {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  z-index: 1;
+}
+@media (max-width: 992px) {
+  .wei-detail-icons {
+    flex-direction: row !important;
+    right: 0%;
+    top: 3%;
+  }
+  .wei-detail-icon {
+    margin-right: 0.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .wei-detail-icon {
+    height: 48px;
+    width: 48px;
+  }
+  .wei-detail-icons {
+    top: 4%;
+  }
+  .wei-detail-heart-icon,
+  .wei-detail-share-icon {
+    line-height: 48px;
+  }
+}
+
+.wei-detail-heart {
+  color: #fc7b7b;
+}
+.wei-detail-heart-icon.wei-grey {
+  color: grey;
+}
+.wei-detail-books {
+  margin-bottom: 192px;
+}
+@media (min-width: 1200px) {
+  .wei-detail-books .wei-card {
+    padding: 0 15px;
+  }
+  .wei-detail-books .wei-card-icon {
+    left: 24px;
+  }
+}
+.wei-detail-books-subtitle {
+  padding-left: 10%;
+  margin-top: 4rem;
+  font-weight: normal;
+}
+
+.wei-holder {
+  margin-top: 6rem;
+  p {
+    white-space: pre-line;
+  }
+  .tab-content > .tab-pane {
+    background: #f1f1f1a6;
+    border-radius: 0 0 15px 15px;
+  }
+  .nav-tabs {
+    background: #f1f1f1a6;
+    border-radius: 15px 15px 0 0;
+  }
+  .nav-tabs .nav-link {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
+}
+@media (max-width: 768px) and (min-width: 576px) {
+  .wei-holder-mobile {
+    margin-top: 132px;
+  }
+}
+.wei-holder-mobile .card-body {
+  white-space: pre-line;
+}
+// popover
+.wei-popover .arrow {
+  display: none;
+  border: none;
+}
+.wei-popover .popover-header {
+  font-size: 14px;
+  background-color: white;
+  border: none;
+  padding: 1rem 0.75rem;
+}
+.wei-popover {
+  width: 280px;
+  .popover-body {
+    padding: 0px 30px;
+  }
+}
+.wei-popover {
+  .rc-slider-handle {
+    border: none;
+    background-color: var(--honki-black);
+    width: 12px;
+    height: 12px;
+  }
+  .rc-slider-handle-dragging {
+    border-color: #e8311581 !important;
+    box-shadow: 0 0 0 5px #e8311581 !important;
+  }
+
+  .rc-slider-track {
+    background-color: rgba(255, 73, 73, 0.829);
+  }
+
+  .rc-slider-tooltip-placement-top {
+    padding: 4px 0 8px 0;
+  }
+  .rc-slider-tooltip-inner {
+    color: white;
+    background-color: var(--honki-black);
+    padding: 0 4px;
+    min-width: 60px;
+    height: 32px;
+    font-size: 12px;
+    line-height: 32px;
+    border-radius: 4px;
+  }
+  .rc-slider-handle-click-focused:focus,
+  .rc-slider-handle:active {
+    border: none;
+    box-shadow: none;
+  }
+  // .rc-slider-tooltip-hidden {
+  //   display: block;
+  // }
+}
+.wei-pop.btn-rounded-dark.btn.btn-primary,
+.wei-pop.btn-sm-dark.btn.btn-primary {
+  &:active,
+  &:focus {
+    background-color: var(--honki-black);
+    border-color: none;
+    box-shadow: none;
+    outline: none;
+  }
+  &:hover {
+    background-color: rgb(114, 108, 106);
+  }
+}
+.wei-pop.wei-detail-icon.btn.btn-primary {
+  &:active,
+  &:hover,
+  &:focus,
+  .active {
+    background-color: white;
+    outline: none;
+    border: 1px solid var(--honki-black);
+    box-shadow: none;
+  }
+}
+.wei-share-pop {
+  padding: 24px;
+  width: 100px;
+  text-align: center;
+  .popover-body {
+    padding: 0px;
+  }
+  .wei-copied {
+    display: none;
+  }
+}
+
+// carousel slick
+.wei-slick {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.wei-slick .wei-card-icon {
+  top: -24px;
+  left: 24px;
+}
+.wei-detail-books .slick-prev:before,
+.wei-detail-books .slick-next:before {
+  font-family: inherit;
+  color: var(--honki-black);
+  font-size: 24px;
+  .slick-prev {
+    left: -32px;
+  }
+  .slick-next {
+    right: -32px;
+  }
+}
+.wei-left-slick > .slick-list > .slick-track {
+  margin-left: 0;
+}
+// favorite list
+.wei-card-list-favorite:hover {
+  .wei-card-list-pic {
+    background: none;
+  }
+  .wei-card-list-pic img {
+    transform: scale(1.1);
+  }
+}
+.wei-card-list-favorite .wei-card-list-pic {
+  background: white;
+}
+.wei-delete-btn {
+  background: #faf5e9;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.wei-link:hover {
+  color: white;
+}
