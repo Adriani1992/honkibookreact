@@ -1,7 +1,7 @@
 # honkibookreact
 這是一個團體專案做出來的成品。
 
-連結至Node的部分
+[連結至Node的部分]：https://github.com/Adriani1992/honkibook
 
 
 
